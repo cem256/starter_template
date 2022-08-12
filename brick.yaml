@@ -1,5 +1,6 @@
 name: starter_template
 description: A new brick created with the Mason CLI.
+repository: https://github.com/cem256/starter_template
 
 version: 1.0.0+1
 

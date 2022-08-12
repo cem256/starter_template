@@ -1,16 +1,12 @@
-# starter_template
+# {{project_name.titleCase()}}
 
-A new Flutter project.
+[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
-## Getting Started
+A starter Flutter App with http client, theme, routing and localization features.
 
-This project is a starting point for a Flutter application.
+## Project Uses: 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [dio](https://pub.dev/packages/dio) for http client
+- [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger) for dio interceptor
+- [Easy Localization](https://pub.dev/packages/easy_localization) for localization
+- [Auto Route](https://pub.dev/packages/auto_route) for routing
