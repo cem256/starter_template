@@ -1,0 +1,20 @@
+name: starter_template
+description: A new brick created with the Mason CLI.
+
+version: 1.0.0+1
+
+environment:
+  mason: ^0.1.0-dev.31
+
+
+vars:
+  project_name:
+    type: string
+    description: Project Name
+    default: Starter Template
+    prompt: Enter the name of your project
+  organization:
+    type: string
+    description: Organization of the project
+    default: com.example
+    prompt:  Enter your organization name

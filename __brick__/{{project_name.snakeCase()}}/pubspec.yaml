@@ -1,0 +1,55 @@
+# Don't forget to change it
+name: starter_template
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  #localization
+  easy_localization: ^3.0.1
+
+  #routing
+  auto_route: ^4.2.1
+
+  #networking
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+  #code gen
+  build_runner: ^2.2.0
+  auto_route_generator: ^4.2.1
+
+
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+
