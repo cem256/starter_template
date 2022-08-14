@@ -39,3 +39,7 @@ mason make starter_template --project_name "Sample Project" --organization "com.
 |------------------------|------------------------------|------------------|----------|
 | `project_name`         | Project Name                 | Starter Template | `string` |
 | `organization`         | Organization of the project  | com.example      | `string` |
+
+## Contributing
+
+Contributions are always welcome and appreciated!
