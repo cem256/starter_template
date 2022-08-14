@@ -1,5 +1,5 @@
 name: starter_template
-description: A new brick created with the Mason CLI.
+description: A starter Flutter App with http client, theme, routing and localization features.
 repository: https://github.com/cem256/starter_template
 
 version: 1.0.0+1
