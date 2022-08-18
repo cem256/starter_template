@@ -1,3 +1,3 @@
-# 0.1.0+1
-
-- TODO: Describe initial release.
+# 1.0.3
+- Improved post and pre gen hooks for easier installation.
+- Update README.md
