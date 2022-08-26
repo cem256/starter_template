@@ -33,7 +33,9 @@ class {{project_name.pascalCase()}} extends StatelessWidget {
       title: StringConstants.title,
 
       //theme
-      theme: ThemeManager.instance.darkTheme,
+      themeMode : ThemeMode.system,
+      theme: ThemeManager.instance.lightTheme,
+      darkTheme : ThemeManager.instance.darkTheme,
 
       // localization
       localizationsDelegates: context.localizationDelegates,

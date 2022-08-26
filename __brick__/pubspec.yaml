@@ -35,7 +35,7 @@ dependencies:
   easy_localization: ^3.0.1
 
   #routing
-  auto_route: ^4.2.1
+  auto_route: ^5.0.1
 
   #networking
   dio: ^4.0.6
@@ -59,7 +59,7 @@ dev_dependencies:
 
   #code gen
   build_runner: ^2.2.0
-  auto_route_generator: ^4.2.1
+  auto_route_generator: ^5.0.1
 
 
 
