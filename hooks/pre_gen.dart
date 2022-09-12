@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:mason/mason.dart';
+import 'package:recase/recase.dart';
 
 Future<void> run(HookContext context) async {
   final progress = context.logger.progress("Running 'flutter create'");
@@ -14,7 +15,7 @@ Future<void> run(HookContext context) async {
 
 Future<ProcessResult> _createFlutterApp(HookContext context) async {
   String projectName = context.vars["project_name"];
-  projectName = projectName.trim().replaceAll(RegExp(r"\s+"), "_").toLowerCase();
+  projectName = projectName.snakeCase;
   final description = context.vars["description"] as String;
   final organization = context.vars["organization"] as String;
 

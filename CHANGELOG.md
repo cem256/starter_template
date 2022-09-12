@@ -7,3 +7,6 @@
 
 # 1.0.5
 - Refactored hooks as suggested [#514](https://github.com/felangel/mason/issues/514)
+
+# 1.0.6
+- Minor change made to improve readability in hook files.

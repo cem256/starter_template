@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:mason/mason.dart';
+import 'package:recase/recase.dart';
 
 Future<void> run(HookContext context) async {
   String projectName = context.vars["project_name"];
-  projectName = projectName.trim().replaceAll(RegExp(r"\s+"), "_").toLowerCase();
+  projectName = projectName.snakeCase;
 
   await _copyFiles(context, projectName);
   await _runFlutterPubGet(context, projectName);
