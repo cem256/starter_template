@@ -13,15 +13,20 @@ Future<void> run(HookContext context) async {
 }
 
 Future<ProcessResult> _createFlutterApp(HookContext context) async {
+  String projectName = context.vars["project_name"];
+  projectName = projectName.trim().replaceAll(RegExp(r"\s+"), "_").toLowerCase();
+  final description = context.vars["description"] as String;
+  final organization = context.vars["organization"] as String;
+
   return Process.run(
     "flutter",
     [
       "create",
-      "{{project_name.snakeCase()}}",
+      projectName,
       "--description",
-      "{{description}}",
+      description,
       "--org",
-      "{{organization}}",
+      organization,
     ],
   );
 }

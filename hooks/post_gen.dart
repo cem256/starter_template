@@ -3,46 +3,49 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 Future<void> run(HookContext context) async {
-  await _copyFiles(context);
-  await _runFlutterPubGet(context);
-  await _runBuildRunnerScript(context);
-  await _runLocalizationScript(context);
+  String projectName = context.vars["project_name"];
+  projectName = projectName.trim().replaceAll(RegExp(r"\s+"), "_").toLowerCase();
+
+  await _copyFiles(context, projectName);
+  await _runFlutterPubGet(context, projectName);
+  await _runBuildRunnerScript(context, projectName);
+  await _runLocalizationScript(context, projectName);
 }
 
-Future<void> _copyFiles(HookContext context) async {
+Future<void> _copyFiles(HookContext context, String projectName) async {
   final copyFileProgress = context.logger.progress("Copying required files");
 
   await Process.run("rm", [
     "-rf",
-    "{{project_name.snakeCase()}}/lib/",
+    "$projectName/lib/",
   ]);
 
   await Process.run("rm", [
     "-rf",
-    "{{project_name.snakeCase()}}/test/widget_test.dart",
+    "$projectName/test/widget_test.dart",
   ]);
 
   await Process.run("rm", [
     "-rf",
-    "{{project_name.snakeCase()}}/pubspec.yaml",
+    "$projectName/pubspec.yaml",
   ]);
 
   final result = await Future.wait<ProcessResult>([
     Process.run("mv", [
       "lib",
-      "{{project_name.snakeCase()}}/",
+      "$projectName/",
     ]),
     Process.run("mv", [
       "assets",
-      "{{project_name.snakeCase()}}/",
+      "$projectName/",
     ]),
     Process.run("mv", [
       "scripts",
-      "{{project_name.snakeCase()}}/",
+      "$projectName/",
     ]),
     Process.run("mv", [
       "pubspec.yaml",
-      "{{project_name.snakeCase()}}/",
+      "$projectName/",
     ]),
   ]);
 
@@ -53,14 +56,14 @@ Future<void> _copyFiles(HookContext context) async {
   }
 }
 
-Future<void> _runFlutterPubGet(HookContext context) async {
+Future<void> _runFlutterPubGet(HookContext context, String projectName) async {
   final flutterPubGetProgress = context.logger.progress(
     "Running pub get script",
   );
   final result = await Process.start(
     "sh",
     ["scripts/pub_get.sh"],
-    workingDirectory: "{{project_name.snakeCase()}}",
+    workingDirectory: projectName,
   );
 
   final exitCode = await result.exitCode;
@@ -73,14 +76,14 @@ Future<void> _runFlutterPubGet(HookContext context) async {
   }
 }
 
-Future<void> _runBuildRunnerScript(HookContext context) async {
+Future<void> _runBuildRunnerScript(HookContext context, String projectName) async {
   final buildRunnerProgress = context.logger.progress(
     "Running build runner script",
   );
   final result = await Process.start(
     "sh",
     ["scripts/build_runner.sh"],
-    workingDirectory: "{{project_name.snakeCase()}}",
+    workingDirectory: projectName,
   );
 
   final exitCode = await result.exitCode;
@@ -93,21 +96,21 @@ Future<void> _runBuildRunnerScript(HookContext context) async {
   }
 }
 
-Future<void> _runLocalizationScript(HookContext context) async {
+Future<void> _runLocalizationScript(HookContext context, String projectName) async {
   final localizationScriptProgress = context.logger.progress(
     "Running localization script",
   );
   final result = await Process.start(
     "sh",
     ["scripts/localization.sh"],
-    workingDirectory: "{{project_name.snakeCase()}}",
+    workingDirectory: projectName,
   );
 
   final exitCode = await result.exitCode;
 
   if (exitCode == 0) {
     localizationScriptProgress.complete("Localization script successfully executed!");
-    localizationScriptProgress.complete("Your project {{project_name.snakeCase()}} successfully created!");
+    localizationScriptProgress.complete("Your project $projectName successfully created!");
   } else {
     localizationScriptProgress.complete("An error occurred on localization script ${result.stderr.toString()}");
     exit(exitCode);
