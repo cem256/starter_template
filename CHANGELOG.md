@@ -10,3 +10,7 @@
 
 # 1.0.6
 - Minor change made to improve readability in hook files.
+
+# 1.0.7
+- Service locator added. [get_it](https://pub.dev/packages/get_it)
+- Dependency versions bumped to latest versions.

@@ -2,7 +2,7 @@
 
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
-Generates a new Flutter app with http client, theme, routing and localization features.
+Generates a new Flutter app with http client, theme, routing, localization and service locator support.
 
 ## Brick Uses: 
 
@@ -10,6 +10,7 @@ Generates a new Flutter app with http client, theme, routing and localization fe
 - [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger) as dio interceptor
 - [Easy Localization](https://pub.dev/packages/easy_localization) for localization
 - [Auto Route](https://pub.dev/packages/auto_route) for routing
+- [get_it](https://pub.dev/packages/get_it) for service locator
 
 ## How to use 🚀
 
