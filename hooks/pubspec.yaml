@@ -4,5 +4,5 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  mason: ^0.1.0-dev.31
+  mason: ^0.1.0-dev.35
   recase: ^4.0.0

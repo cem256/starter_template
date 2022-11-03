@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../product/constants/asset_constants.dart';
+import '../../constants/asset_constants.dart';
 
 class LanguageManager {
-  static final LanguageManager _instance = LanguageManager._init();
-  static LanguageManager get instance => _instance;
-
-  LanguageManager._init();
-
   final en = const Locale("en", "US");
   final tr = const Locale("tr", "TR");
 
