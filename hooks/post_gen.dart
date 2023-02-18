@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:mason/mason.dart';
-import 'package:recase/recase.dart';
 
 Future<void> run(HookContext context) async {
   String projectName = context.vars["project_name"];
@@ -10,7 +9,6 @@ Future<void> run(HookContext context) async {
   await _copyFiles(context, projectName);
   await _runFlutterPubGet(context, projectName);
   await _runBuildRunnerScript(context, projectName);
-  await _runLocalizationScript(context, projectName);
 }
 
 Future<void> _copyFiles(HookContext context, String projectName) async {
@@ -30,6 +28,14 @@ Future<void> _copyFiles(HookContext context, String projectName) async {
     "-rf",
     "$projectName/pubspec.yaml",
   ]);
+  await Process.run("rm", [
+    "-rf",
+    "$projectName/analysis_options.yaml",
+  ]);
+  await Process.run("rm", [
+    "-rf",
+    "$projectName/.gitignore",
+  ]);
 
   final result = await Future.wait<ProcessResult>([
     Process.run("mv", [
@@ -46,6 +52,18 @@ Future<void> _copyFiles(HookContext context, String projectName) async {
     ]),
     Process.run("mv", [
       "pubspec.yaml",
+      "$projectName/",
+    ]),
+    Process.run("mv", [
+      "analysis_options.yaml",
+      "$projectName/",
+    ]),
+    Process.run("mv", [
+      "l10n.yaml",
+      "$projectName/",
+    ]),
+    Process.run("mv", [
+      ".gitignore",
       "$projectName/",
     ]),
   ]);
@@ -93,27 +111,6 @@ Future<void> _runBuildRunnerScript(HookContext context, String projectName) asyn
     buildRunnerProgress.complete("Build runner script successfully executed!");
   } else {
     buildRunnerProgress.complete("An error occurred on build runner script ${result.stderr.toString()}");
-    exit(exitCode);
-  }
-}
-
-Future<void> _runLocalizationScript(HookContext context, String projectName) async {
-  final localizationScriptProgress = context.logger.progress(
-    "Running localization script",
-  );
-  final result = await Process.start(
-    "sh",
-    ["scripts/localization.sh"],
-    workingDirectory: projectName,
-  );
-
-  final exitCode = await result.exitCode;
-
-  if (exitCode == 0) {
-    localizationScriptProgress.complete("Localization script successfully executed!");
-    localizationScriptProgress.complete("Your project $projectName successfully created!");
-  } else {
-    localizationScriptProgress.complete("An error occurred on localization script ${result.stderr.toString()}");
     exit(exitCode);
   }
 }

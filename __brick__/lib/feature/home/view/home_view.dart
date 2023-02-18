@@ -1,17 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/manager/language/locale_keys.g.dart';
+import 'package:{{project_name.snakeCase()}}/app/l10n/l10n.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          LocaleKeys.flutter.tr(),
+          context.l10n.flutter,
         ),
       ),
     );

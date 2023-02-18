@@ -1,11 +1,11 @@
 name: starter_template
-description: Generates a new Flutter app with http client, theme, routing, localization and service locator support.
+description: A Flutter starter app that includes support for an HTTP client, themes, routing, localization, and dependency injection.
 repository: https://github.com/cem256/starter_template
 
-version: 1.0.7+1
+version: 1.0.8+1
 
 environment:
-  mason: ^0.1.0-dev.35
+  mason: ^0.1.0-dev.42
 
 
 vars:
