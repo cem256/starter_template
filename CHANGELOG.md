@@ -1,3 +1,9 @@
+# 1.0.9
+
+- Added base theme for easier theme customization
+- Upgraded dependencies to the latest versions
+- Migrated to Dart 3.0
+
 # 1.0.8
 
 - Refactored project structure for improved organization and readability
