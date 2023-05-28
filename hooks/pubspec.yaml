@@ -1,7 +1,7 @@
 name: starter_template
 
 environment:
-  sdk: ">=2.18.6 <3.0.0"
+  sdk: ">=2.18.6 <4.0.0"
 
 dependencies:
-  mason: ^0.1.0-dev.42
+  mason: ^0.1.0-dev.49

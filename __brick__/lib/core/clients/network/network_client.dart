@@ -10,9 +10,9 @@ class NetworkClient {
     required Dio dio,
   }) : _dio = dio {
     _dio.options.baseUrl = ApiConstants.baseUrl;
-    _dio.options.connectTimeout = 10000;
-    _dio.options.sendTimeout = 10000;
-    _dio.options.receiveTimeout = 10000;
+    _dio.options.connectTimeout = const Duration(seconds: 10000);
+    _dio.options.sendTimeout = const Duration(seconds: 10000);
+    _dio.options.receiveTimeout = const Duration(seconds: 10000);
 
     if (kDebugMode) {
       _dio.interceptors.add(

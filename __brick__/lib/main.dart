@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/app/constants/string_constants.dart';
 import 'package:{{project_name.snakeCase()}}/app/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/app/router/app_router.gr.dart';
-import 'package:{{project_name.snakeCase()}}/app/theme/app_theme.dart';
+import 'package:{{project_name.snakeCase()}}/app/theme/dark/dark_theme.dart';
+import 'package:{{project_name.snakeCase()}}/app/theme/light/light_theme.dart';
 import 'package:{{project_name.snakeCase()}}/injection.dart';
 
 void main() {
   configureDependencies();
-
   runApp({{project_name.pascalCase()}}());
 }
 
@@ -21,8 +21,10 @@ class {{project_name.pascalCase()}} extends StatelessWidget {
     return MaterialApp.router(
       // App Name
       title: StringConstants.appName,
-      theme: getIt<AppTheme>().lightTheme,
-      darkTheme: getIt<AppTheme>().darkTheme,
+      
+      // Theme
+      theme: LightTheme().theme,
+      darkTheme: DarkTheme().theme,
 
       // Localization
       localizationsDelegates: AppLocalizations.localizationsDelegates,

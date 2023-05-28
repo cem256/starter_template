@@ -5,7 +5,7 @@ repository: https://github.com/cem256/starter_template
 version: 1.0.8+1
 
 environment:
-  mason: ^0.1.0-dev.42
+  mason: ^0.1.0-dev.49
 
 
 vars:
