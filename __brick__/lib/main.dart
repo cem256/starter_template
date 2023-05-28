@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/app/constants/string_constants.dart';
 import 'package:{{project_name.snakeCase()}}/app/l10n/l10n.dart';
-import 'package:{{project_name.snakeCase()}}/app/router/app_router.gr.dart';
+import 'package:{{project_name.snakeCase()}}/app/router/app_router.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/dark/dark_theme.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/light/light_theme.dart';
 import 'package:{{project_name.snakeCase()}}/injection.dart';
@@ -14,7 +14,7 @@ void main() {
 class {{project_name.pascalCase()}} extends StatelessWidget {
   {{project_name.pascalCase()}}({super.key});
 
-  final appRouter = AppRouter();
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,7 @@ class {{project_name.pascalCase()}} extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
 
       // Routing
-      routerDelegate: appRouter.delegate(),
-      routeInformationParser: appRouter.defaultRouteParser(),
+      routerConfig: _appRouter.config(),
     );
   }
 }

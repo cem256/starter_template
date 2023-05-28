@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension MediaQueryExtension on BuildContext {
+  MediaQueryData get mediaQuery => MediaQuery.of(this);
   double get height => MediaQuery.of(this).size.height;
   double get width => MediaQuery.of(this).size.width;
 
@@ -23,15 +24,9 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get paddingAllHigh => EdgeInsets.all(highValue);
   EdgeInsets get paddingAllVeryHigh => EdgeInsets.all(veryHighValue);
 
-  EdgeInsets get paddingHorizontalLow => EdgeInsets.symmetric(
-        horizontal: lowValue,
-      );
-  EdgeInsets get paddingHorizontalDefault => EdgeInsets.symmetric(
-        horizontal: mediumValue,
-      );
-  EdgeInsets get paddingHorizontalHigh => EdgeInsets.symmetric(
-        horizontal: highValue,
-      );
+  EdgeInsets get paddingHorizontalLow => EdgeInsets.symmetric(horizontal: lowValue);
+  EdgeInsets get paddingHorizontalDefault => EdgeInsets.symmetric(horizontal: mediumValue);
+  EdgeInsets get paddingHorizontalHigh => EdgeInsets.symmetric(horizontal: highValue);
   EdgeInsets get paddingHorizontaVeryHigh => EdgeInsets.symmetric(horizontal: veryHighValue);
 
   EdgeInsets get paddingVerticalLow => EdgeInsets.symmetric(vertical: lowValue);
@@ -64,6 +59,7 @@ extension DurationExtension on BuildContext {
   Duration get durationLow => const Duration(milliseconds: 250);
   Duration get durationDefault => const Duration(milliseconds: 500);
   Duration get durationHigh => const Duration(milliseconds: 1000);
+  Duration get durationVeryHigh => const Duration(milliseconds: 2000);
 }
 
 extension ThemeExtension on BuildContext {
