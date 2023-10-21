@@ -1,3 +1,7 @@
+# 1.1.0
+- Upgraded dependencies to the latest versions
+- Used Dart 3.0 class modifiers
+
 # 1.0.9
 
 - Added base theme for easier theme customization
