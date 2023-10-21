@@ -4,10 +4,11 @@ import 'package:{{project_name.snakeCase()}}/app/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/app/router/app_router.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/dark/dark_theme.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/light/light_theme.dart';
-import 'package:{{project_name.snakeCase()}}/injection.dart';
+import 'package:{{project_name.snakeCase()}}/locator.dart';
 
-void main() {
-  configureDependencies();
+Future<void> main() async {
+  // Initialize Locator
+  await Locator.locateServices();
   runApp({{project_name.pascalCase()}}());
 }
 

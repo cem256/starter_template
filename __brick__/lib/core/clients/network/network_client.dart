@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:{{project_name.snakeCase()}}/app/constants/api_constants.dart';
 
 @lazySingleton
-class NetworkClient {
+// Defining a network client using Dio
+/// Instance of this class can be used to make network calls
+final class NetworkClient {
   NetworkClient({
     required Dio dio,
   }) : _dio = dio {
@@ -14,6 +17,7 @@ class NetworkClient {
     _dio.options.sendTimeout = const Duration(seconds: 10000);
     _dio.options.receiveTimeout = const Duration(seconds: 10000);
 
+    _dio.interceptors.add(RetryInterceptor(dio: _dio));
     if (kDebugMode) {
       _dio.interceptors.add(
         PrettyDioLogger(

@@ -2,67 +2,120 @@ import 'package:flutter/material.dart';
 
 extension MediaQueryExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
-  double get height => MediaQuery.of(this).size.height;
-  double get width => MediaQuery.of(this).size.width;
 
+  /// Returns the height of the device
+  double get height => MediaQuery.sizeOf(this).height;
+
+  /// Returns the width of the device
+  double get width => MediaQuery.sizeOf(this).width;
+
+  /// Returns 1% of the screen height
   double get lowValue => height * 0.01;
-  double get mediumValue => height * 0.02;
-  double get highValue => height * 0.06;
-  double get veryHighValue => height * 0.1;
-  double get veryHighValue2x => height * 0.2;
-  double get veryHighValue3x => height * 0.3;
-  double get veryHighValue4x => height * 0.4;
-  double get veryHighValue5x => height * 0.5;
+
+  /// Default value is 2% of the screen height
+  double get defaultValue => height * 0.02;
+
+  /// Returns 5% of the screen height
+  double get highValue => height * 0.05;
+
+  /// Returns 10% of the screen height
+  double get veryhighValue1x => height * 0.1;
+
+  /// Returns 20% of the screen height
+  double get veryhighValue2x => height * 0.2;
+
+  /// Returns 30% of the screen height
+  double get veryhighValue3x => height * 0.3;
+
+  /// Returns 40% of the screen height
+  double get veryhighValue4x => height * 0.4;
+
+  /// Returns 50% of the screen height
+  double get veryhighValue5x => height * 0.5;
 
   double dynamicWidth(double val) => width * val;
   double dynamicHeight(double val) => height * val;
 }
 
 extension PaddingExtension on BuildContext {
+  /// Adds 1% padding from all sides.
   EdgeInsets get paddingAllLow => EdgeInsets.all(lowValue);
-  EdgeInsets get paddingAllDefault => EdgeInsets.all(mediumValue);
+
+  /// Adds 2% padding from all sides.
+  /// Use this when you want to add padding from all sides.
+  EdgeInsets get paddingAllDefault => EdgeInsets.all(defaultValue);
+
+  /// Adds 5% padding from all sides.
   EdgeInsets get paddingAllHigh => EdgeInsets.all(highValue);
-  EdgeInsets get paddingAllVeryHigh => EdgeInsets.all(veryHighValue);
 
+  /// Adds 1% padding horizontally.
   EdgeInsets get paddingHorizontalLow => EdgeInsets.symmetric(horizontal: lowValue);
-  EdgeInsets get paddingHorizontalDefault => EdgeInsets.symmetric(horizontal: mediumValue);
+
+  /// Adds 2% padding horizontally.
+  /// Use this when you want to add padding horizontally.
+  EdgeInsets get paddingHorizontalDefault => EdgeInsets.symmetric(horizontal: defaultValue);
+
+  /// Adds 5% padding horizontally.
   EdgeInsets get paddingHorizontalHigh => EdgeInsets.symmetric(horizontal: highValue);
-  EdgeInsets get paddingHorizontaVeryHigh => EdgeInsets.symmetric(horizontal: veryHighValue);
 
+  /// Adds 1% padding vertically.
   EdgeInsets get paddingVerticalLow => EdgeInsets.symmetric(vertical: lowValue);
-  EdgeInsets get paddingVerticalDefault => EdgeInsets.symmetric(vertical: mediumValue);
+
+  /// Adds 2% padding vertically.
+  /// Use this when you want to add padding vertically.
+  EdgeInsets get paddingVerticalDefault => EdgeInsets.symmetric(vertical: defaultValue);
+
+  /// Adds 5% padding vertically.
   EdgeInsets get paddingVerticalHigh => EdgeInsets.symmetric(vertical: highValue);
-  EdgeInsets get paddingVerticalVeryHigh => EdgeInsets.symmetric(vertical: veryHighValue);
 
+  /// Adds 1% padding from right.
   EdgeInsets get paddingRightLow => EdgeInsets.only(right: lowValue);
-  EdgeInsets get paddingRightDefault => EdgeInsets.only(right: mediumValue);
+
+  /// Adds 2% padding from right.
+  /// Use this when you want to add padding from right.
+  EdgeInsets get paddingRightDefault => EdgeInsets.only(right: defaultValue);
+
+  /// Adds 5% padding from right.
   EdgeInsets get paddingRightHigh => EdgeInsets.only(right: highValue);
-  EdgeInsets get paddingRightVeryHigh => EdgeInsets.only(right: veryHighValue);
 
+  /// Adds 1% padding from left.
   EdgeInsets get paddingLeftLow => EdgeInsets.only(left: lowValue);
-  EdgeInsets get paddingLeftDefault => EdgeInsets.only(left: mediumValue);
+
+  /// Adds 2% padding from left.
+  /// Use this when you want to add padding from left.
+  EdgeInsets get paddingLeftDefault => EdgeInsets.only(left: defaultValue);
+
+  /// Adds 5% padding from left.
   EdgeInsets get paddingLeftHigh => EdgeInsets.only(left: highValue);
-  EdgeInsets get paddingLeftVeryHigh => EdgeInsets.only(left: veryHighValue);
 
+  /// Adds 1% padding from top.
   EdgeInsets get paddingTopLow => EdgeInsets.only(top: lowValue);
-  EdgeInsets get paddingTopDefault => EdgeInsets.only(top: mediumValue);
+
+  /// Adds 2% padding from top.
+  /// Use this when you want to add padding from top.
+  EdgeInsets get paddingTopDefault => EdgeInsets.only(top: defaultValue);
+
+  /// Adds 5% padding from top.
   EdgeInsets get paddingTopHigh => EdgeInsets.only(top: highValue);
-  EdgeInsets get paddingTopVeryHigh => EdgeInsets.only(top: veryHighValue);
 
+  /// Adds 1% padding from bottom.
   EdgeInsets get paddingBottomLow => EdgeInsets.only(bottom: lowValue);
-  EdgeInsets get paddingBottomDefault => EdgeInsets.only(bottom: mediumValue);
-  EdgeInsets get paddingBottomHigh => EdgeInsets.only(bottom: highValue);
-  EdgeInsets get paddingBottomVeryHigh => EdgeInsets.only(bottom: veryHighValue);
-}
 
-extension DurationExtension on BuildContext {
-  Duration get durationLow => const Duration(milliseconds: 250);
-  Duration get durationDefault => const Duration(milliseconds: 500);
-  Duration get durationHigh => const Duration(milliseconds: 1000);
-  Duration get durationVeryHigh => const Duration(milliseconds: 2000);
+  /// Adds 2% padding from bottom.
+  /// Use this when you want to add padding from bottom.
+  EdgeInsets get paddingBottomDefault => EdgeInsets.only(bottom: defaultValue);
+
+  /// Adds 5% padding from bottom.
+  EdgeInsets get paddingBottomHigh => EdgeInsets.only(bottom: highValue);
 }
 
 extension ThemeExtension on BuildContext {
+  /// Get the theme data
   ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => theme.textTheme;
+
+  /// Get the text theme
+  TextTheme get textTheme => Theme.of(this).textTheme;
+
+  /// Get the brightness
+  Brightness get brightness => Theme.of(this).brightness;
 }

@@ -1,4 +1,6 @@
-abstract class ApiConstants {
+final class ApiConstants {
+  ApiConstants._();
+
   //TODO: Base url goes here
-  static const baseUrl = '';
+  static const String baseUrl = '';
 }

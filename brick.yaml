@@ -2,11 +2,10 @@ name: starter_template
 description: A Flutter starter app that includes support for an HTTP client, themes, routing, localization, and dependency injection.
 repository: https://github.com/cem256/starter_template
 
-version: 1.0.9+2
+version: 1.1.0+3
 
 environment:
-  mason: ^0.1.0-dev.49
-
+  mason: ^0.1.0-dev.51
 
 vars:
   project_name:
@@ -24,4 +23,4 @@ vars:
     type: string
     description: Organization of the project
     default: com.example
-    prompt:  Enter your organization name
+    prompt: Enter your organization name
