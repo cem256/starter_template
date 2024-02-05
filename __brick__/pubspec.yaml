@@ -26,6 +26,7 @@ dependencies:
 
   # Utility
   intl: ^0.18.0
+  package_info_plus: ^5.0.1
 
   # Dependency Injection
   injectable: ^2.3.2
