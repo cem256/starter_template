@@ -1,3 +1,7 @@
+# 1.1.2
+- Added package info utils
+- Added device info utils
+
 # 1.1.1
 - Upgraded dependencies to the latest versions
 
