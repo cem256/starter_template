@@ -1,18 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:{{project_name.snakeCase()}}/app/constants/api_constants.dart';
 
-@lazySingleton
 // Defining a network client using Dio
 /// Instance of this class can be used to make network calls
 final class NetworkClient {
   NetworkClient({
     required Dio dio,
-  }) : _dio = dio {
-    _dio.options.baseUrl = ApiConstants.baseUrl;
+    required String baseUrl,
+  })  : _dio = dio,
+        _baseUrl = baseUrl {
+    _dio.options.baseUrl = _baseUrl;
     _dio.options.connectTimeout = const Duration(minutes: 1);
     _dio.options.sendTimeout = const Duration(minutes: 1);
     _dio.options.receiveTimeout = const Duration(minutes: 1);
@@ -29,6 +28,7 @@ final class NetworkClient {
   }
 
   final Dio _dio;
+  final String _baseUrl;
   // Post:----------------------------------------------------------------------
   Future<Response<T>> get<T>(
     String path, {

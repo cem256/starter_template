@@ -25,16 +25,14 @@ dependencies:
   auto_route: ^7.8.4
 
   # Utility
-  intl: ^0.18.0
   uuid: ^4.3.3
+  intl: ^0.18.0
+  envied: ^0.5.3
   package_info_plus: ^5.0.1
   device_info_plus: ^9.1.2
 
   # Dependency Injection
-  injectable: ^2.3.2
   get_it: ^7.6.7
-
-
 
 dev_dependencies:
   flutter_test:
@@ -44,8 +42,8 @@ dev_dependencies:
 
   # Code Generation
   build_runner: ^2.4.8
+  envied_generator: ^0.5.3
   auto_route_generator: ^7.3.2
-  injectable_generator: ^2.4.1
 
 flutter:
   generate: true

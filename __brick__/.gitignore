@@ -48,3 +48,8 @@ app.*.map.json
 *.gr.dart
 *.freezed.dart
 *.config.dart
+
+# environment variables
+/environment/.development.env
+/environment/.production.env
+

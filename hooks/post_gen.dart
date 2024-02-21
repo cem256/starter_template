@@ -39,6 +39,14 @@ Future<void> _copyFiles(HookContext context, String projectName) async {
 
   final result = await Future.wait<ProcessResult>([
     Process.run("mv", [
+      ".vscode",
+      "$projectName/",
+    ]),
+    Process.run("mv", [
+      "environment",
+      "$projectName/",
+    ]),
+    Process.run("mv", [
       "lib",
       "$projectName/",
     ]),
