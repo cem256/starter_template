@@ -10,7 +10,7 @@ A Flutter starter app that includes support for an HTTP client, themes, routing,
 - [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger) as a dio interceptor
 - [auto_route](https://pub.dev/packages/auto_route) for routing
 - [get_it](https://pub.dev/packages/get_it) for dependency injection
-- [injectable](https://pub.dev/packages/injectable) as a code generator for get_it
+- [envied](https://pub.dev/packages/envied) for secure handling of environment variables
 - [very_good_analysis](https://pub.dev/packages/very_good_analysis) for lint rules
 
 ## Project Structure
