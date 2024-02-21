@@ -1,3 +1,7 @@
+# 1.1.3
+- Added multi-environment setup using [envied](https://pub.dev/packages/envied)
+- Removed [injectable](https://pub.dev/packages/injectable) because it reduced the flexibility of the environment setup.
+
 # 1.1.2
 - Added package info utils
 - Added device info utils
