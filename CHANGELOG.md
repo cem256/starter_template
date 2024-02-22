@@ -1,3 +1,6 @@
+# 1.1.4
+- Added output section to README.md
+
 # 1.1.3
 - Added multi-environment setup using [envied](https://pub.dev/packages/envied)
 - Removed [injectable](https://pub.dev/packages/injectable) because it reduced the flexibility of the environment setup.
