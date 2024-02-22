@@ -47,6 +47,63 @@ mason make starter_template
 | `description`  | Project description         | A new Flutter project. | `string` |
 | `organization` | Organization of the project | com.example            | `string` |
 
+## Output 📦
+
+```sh
+
+📦lib
+ ┣ 📂app
+ ┃ ┣ 📂constants
+ ┃ ┃ ┗ 📜string_constants.dart
+ ┃ ┣ 📂environment
+ ┃ ┃ ┣ 📜app_environment.dart
+ ┃ ┃ ┣ 📜development_environment.dart
+ ┃ ┃ ┣ 📜development_environment.g.dart
+ ┃ ┃ ┣ 📜production_environment.dart
+ ┃ ┃ ┗ 📜production_environment.g.dart
+ ┃ ┣ 📂l10n
+ ┃ ┃ ┣ 📂arb
+ ┃ ┃ ┃ ┣ 📜app_en.arb
+ ┃ ┃ ┃ ┗ 📜app_tr.arb
+ ┃ ┃ ┗ 📜l10n.dart
+ ┃ ┣ 📂router
+ ┃ ┃ ┣ 📜app_router.dart
+ ┃ ┃ ┗ 📜app_router.gr.dart
+ ┃ ┣ 📂theme
+ ┃ ┃ ┣ 📂base
+ ┃ ┃ ┃ ┗ 📜base_theme.dart
+ ┃ ┃ ┣ 📂dark
+ ┃ ┃ ┃ ┗ 📜dark_theme.dart
+ ┃ ┃ ┗ 📂light
+ ┃ ┃ ┃ ┗ 📜light_theme.dart
+ ┃ ┗ 📂view
+ ┃ ┃ ┗ 📜app.dart
+ ┣ 📂core
+ ┃ ┣ 📂clients
+ ┃ ┃ ┗ 📂network
+ ┃ ┃ ┃ ┗ 📜network_client.dart
+ ┃ ┣ 📂extensions
+ ┃ ┃ ┗ 📜context_extensions.dart
+ ┃ ┗ 📂utils
+ ┃ ┃ ┣ 📂device_info
+ ┃ ┃ ┃ ┗ 📜device_info_utils.dart
+ ┃ ┃ ┗ 📂package_info
+ ┃ ┃ ┃ ┗ 📜package_info_utils.dart
+ ┣ 📂feature
+ ┃ ┗ 📂home
+ ┃ ┃ ┣ 📂model
+ ┃ ┃ ┃ ┗ 📜.gitkeep
+ ┃ ┃ ┣ 📂view
+ ┃ ┃ ┃ ┗ 📜home_view.dart
+ ┃ ┃ ┗ 📂view_model
+ ┃ ┃ ┃ ┗ 📜.gitkeep
+ ┣ 📜bootstrap.dart
+ ┣ 📜locator.dart
+ ┣ 📜main_development.dart
+ ┗ 📜main_production.dart
+
+```
+
 ## Contributing
 
 Contributions are always welcomed and appreciated!
