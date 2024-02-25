@@ -1,80 +1,49 @@
 import 'dart:io';
-
 import 'package:mason/mason.dart';
 
 Future<void> run(HookContext context) async {
   String projectName = context.vars["project_name"];
   projectName = projectName.snakeCase;
 
-  await _copyFiles(context, projectName);
+  final List<String> foldersToRemove = [
+    "$projectName/lib/",
+    "$projectName/test/widget_test.dart",
+    "$projectName/pubspec.yaml",
+    "$projectName/analysis_options.yaml",
+    "$projectName/.gitignore",
+  ];
+
+  final List<Map<String, String>> filesToCopy = [
+    {"source": ".vscode", "destination": "$projectName/"},
+    {"source": "environment", "destination": "$projectName/"},
+    {"source": "lib", "destination": "$projectName/"},
+    {"source": "assets", "destination": "$projectName/"},
+    {"source": "scripts", "destination": "$projectName/"},
+    {"source": "pubspec.yaml", "destination": "$projectName/"},
+    {"source": "analysis_options.yaml", "destination": "$projectName/"},
+    {"source": "l10n.yaml", "destination": "$projectName/"},
+    {"source": ".gitignore", "destination": "$projectName/"},
+  ];
+
+  await _copyFiles(context, projectName, foldersToRemove, filesToCopy);
   await _runFlutterPubGet(context, projectName);
   await _runBuildRunnerScript(context, projectName);
 }
 
-Future<void> _copyFiles(HookContext context, String projectName) async {
+Future<void> _copyFiles(HookContext context, String projectName, List<String> foldersToRemove,
+    List<Map<String, String>> filesToCopy) async {
   final copyFileProgress = context.logger.progress("Copying required files");
 
-  await Process.run("rm", [
-    "-rf",
-    "$projectName/lib/",
-  ]);
+  for (String folder in foldersToRemove) {
+    await Process.run("rm", ["-rf", folder]);
+  }
 
-  await Process.run("rm", [
-    "-rf",
-    "$projectName/test/widget_test.dart",
-  ]);
+  List<Future<ProcessResult>> copyFutures = [];
+  for (var fileMap in filesToCopy) {
+    copyFutures.add(Process.run("mv", [fileMap["source"]!, fileMap["destination"]!]));
+  }
 
-  await Process.run("rm", [
-    "-rf",
-    "$projectName/pubspec.yaml",
-  ]);
-  await Process.run("rm", [
-    "-rf",
-    "$projectName/analysis_options.yaml",
-  ]);
-  await Process.run("rm", [
-    "-rf",
-    "$projectName/.gitignore",
-  ]);
-
-  final result = await Future.wait<ProcessResult>([
-    Process.run("mv", [
-      ".vscode",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "environment",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "lib",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "assets",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "scripts",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "pubspec.yaml",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "analysis_options.yaml",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      "l10n.yaml",
-      "$projectName/",
-    ]),
-    Process.run("mv", [
-      ".gitignore",
-      "$projectName/",
-    ]),
-  ]);
+  final result = await Future.wait<ProcessResult>(copyFutures);
 
   if (result.every((element) => element.exitCode == 0)) {
     copyFileProgress.complete("Files copied successfully!");
@@ -84,14 +53,8 @@ Future<void> _copyFiles(HookContext context, String projectName) async {
 }
 
 Future<void> _runFlutterPubGet(HookContext context, String projectName) async {
-  final flutterPubGetProgress = context.logger.progress(
-    "Running pub get script",
-  );
-  final result = await Process.start(
-    "sh",
-    ["scripts/pub_get.sh"],
-    workingDirectory: projectName,
-  );
+  final flutterPubGetProgress = context.logger.progress("Running pub get script");
+  final result = await Process.start("sh", ["scripts/pub_get.sh"], workingDirectory: projectName);
 
   final exitCode = await result.exitCode;
 
@@ -104,14 +67,8 @@ Future<void> _runFlutterPubGet(HookContext context, String projectName) async {
 }
 
 Future<void> _runBuildRunnerScript(HookContext context, String projectName) async {
-  final buildRunnerProgress = context.logger.progress(
-    "Running build runner script",
-  );
-  final result = await Process.start(
-    "sh",
-    ["scripts/build_runner.sh"],
-    workingDirectory: projectName,
-  );
+  final buildRunnerProgress = context.logger.progress("Running build runner script");
+  final result = await Process.start("sh", ["scripts/build_runner.sh"], workingDirectory: projectName);
 
   final exitCode = await result.exitCode;
 
