@@ -1,3 +1,6 @@
+# 1.1.5
+- Refactored post gen hook 
+
 # 1.1.4
 - Added output section to README.md
 
