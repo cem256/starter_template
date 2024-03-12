@@ -39,6 +39,10 @@ Generate your brick
 mason make starter_template
 ```
 
+## Warning ⚠️
+
+Ensure the environment/ folder is included in your .gitignore to protect sensitive configuration
+
 ## Variables ✨
 
 | Variable       | Description                 | Default                | Type     |
