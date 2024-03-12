@@ -50,6 +50,6 @@ app.*.map.json
 *.config.dart
 
 # environment variables
-/environment/.development.env
-/environment/.production.env
+# /environment/
+
 
