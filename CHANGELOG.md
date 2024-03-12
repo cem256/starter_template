@@ -1,3 +1,6 @@
+# 1.1.6
+- Removed /environment folder from .gitignore to resolve build_runner issues.
+
 # 1.1.5
 - Refactored post gen hook 
 
