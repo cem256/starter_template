@@ -1,3 +1,7 @@
+# 1.1.7
+- Upgraded dependencies to the latest versions
+- Added untranslated-messages-file parameter to l10n.yaml
+
 # 1.1.6
 - Removed /environment folder from .gitignore to resolve build_runner issues.
 
