@@ -7,9 +7,9 @@ A Flutter starter app that includes support for an HTTP client, themes, routing,
 ## Brick Uses:
 
 - [dio](https://pub.dev/packages/dio) as an HTTP client
-- [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger) as a dio interceptor
 - [auto_route](https://pub.dev/packages/auto_route) for routing
 - [get_it](https://pub.dev/packages/get_it) for dependency injection
+- [logger](https://pub.dev/packages/logger) as logging utility
 - [envied](https://pub.dev/packages/envied) for secure handling of environment variables
 - [very_good_analysis](https://pub.dev/packages/very_good_analysis) for lint rules
 
@@ -68,11 +68,13 @@ Ensure the environment/ folder is included in your .gitignore to protect sensiti
  ┃ ┣ 📂l10n
  ┃ ┃ ┣ 📂arb
  ┃ ┃ ┃ ┣ 📜app_en.arb
- ┃ ┃ ┃ ┗ 📜app_tr.arb
+ ┃ ┃ ┃ ┣ 📜app_tr.arb
+ ┃ ┃ ┃ ┗ 📜untranslated_translations.json
  ┃ ┃ ┗ 📜l10n.dart
  ┃ ┣ 📂router
  ┃ ┃ ┣ 📜app_router.dart
- ┃ ┃ ┗ 📜app_router.gr.dart
+ ┃ ┃ ┣ 📜app_router.gr.dart
+ ┃ ┃ ┗ 📜custom_route_observer.dart
  ┃ ┣ 📂theme
  ┃ ┃ ┣ 📂base
  ┃ ┃ ┃ ┗ 📜base_theme.dart
@@ -91,6 +93,8 @@ Ensure the environment/ folder is included in your .gitignore to protect sensiti
  ┃ ┗ 📂utils
  ┃ ┃ ┣ 📂device_info
  ┃ ┃ ┃ ┗ 📜device_info_utils.dart
+ ┃ ┃ ┣ 📂logger
+ ┃ ┃ ┃ ┗ 📜logger_utils.dart
  ┃ ┃ ┗ 📂package_info
  ┃ ┃ ┃ ┗ 📜package_info_utils.dart
  ┣ 📂feature

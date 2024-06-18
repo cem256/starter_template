@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/app/constants/string_constants.dart';
 import 'package:{{project_name.snakeCase()}}/app/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/app/router/app_router.dart';
+import 'package:{{project_name.snakeCase()}}/app/router/custom_route_observer.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/dark/dark_theme.dart';
 import 'package:{{project_name.snakeCase()}}/app/theme/light/light_theme.dart';
 
@@ -25,7 +26,9 @@ class App extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
 
       // Routing
-      routerConfig: _appRouter.config(),
+      routerConfig: _appRouter.config(
+        navigatorObservers: () => [CustomRouteObserver()],
+      ),
     );
   }
 }
