@@ -1,3 +1,8 @@
+# 1.1.8
+- Migrated to flutter 3.22
+- Added [logger](https://pub.dev/packages/logger) as a logging tool
+- Added a custom navigatorObserver to track route changes
+
 # 1.1.7
 - Upgraded dependencies to the latest versions
 - Added untranslated-messages-file parameter to l10n.yaml
