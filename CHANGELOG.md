@@ -1,3 +1,7 @@
+# 1.1.9
+- Migrated auto_route to v9.2.0
+- Bumped very_good_analysis to v6.0.0 
+
 # 1.1.8
 - Migrated to flutter 3.22
 - Added [logger](https://pub.dev/packages/logger) as a logging tool
