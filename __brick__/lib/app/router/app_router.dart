@@ -5,7 +5,7 @@ import 'package:{{project_name.snakeCase()}}/app/router/app_router.gr.dart';
 
 /// Holds all the routes that are defined in the app
 /// Used to generate the Router object
-final class AppRouter extends $AppRouter {
+final class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         // TODO: Add routes here
