@@ -1,3 +1,6 @@
+# 1.1.10
+- bumped mason to v0.1.0-dev.59
+
 # 1.1.9
 - Migrated auto_route to v9.2.0
 - Bumped very_good_analysis to v6.0.0 
