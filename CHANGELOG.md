@@ -1,3 +1,6 @@
+# 1.1.11
+- Added logging config for CustomRouteObserver #10
+
 # 1.1.10
 - bumped mason to v0.1.0-dev.59
 
