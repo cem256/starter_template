@@ -1,3 +1,6 @@
+# 1.1.12
+- Bumped dependencies to the latest versions
+
 # 1.1.11
 - Added logging config for CustomRouteObserver #10
 
