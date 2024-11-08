@@ -7,7 +7,7 @@ Future<void> run(HookContext context) async {
 
   final List<String> foldersToRemove = [
     "$projectName/lib/",
-    "$projectName/test/widget_test.dart",
+    "$projectName/test/",
     "$projectName/pubspec.yaml",
     "$projectName/analysis_options.yaml",
     "$projectName/.gitignore",
@@ -25,13 +25,13 @@ Future<void> run(HookContext context) async {
     {"source": ".gitignore", "destination": "$projectName/"},
   ];
 
-  await _copyFiles(context, projectName, foldersToRemove, filesToCopy);
+  await _copyFiles(context, foldersToRemove, filesToCopy);
   await _runFlutterPubGet(context, projectName);
   await _runBuildRunnerScript(context, projectName);
 }
 
-Future<void> _copyFiles(HookContext context, String projectName, List<String> foldersToRemove,
-    List<Map<String, String>> filesToCopy) async {
+Future<void> _copyFiles(
+    HookContext context, List<String> foldersToRemove, List<Map<String, String>> filesToCopy) async {
   final copyFileProgress = context.logger.progress("Copying required files");
 
   for (String folder in foldersToRemove) {
