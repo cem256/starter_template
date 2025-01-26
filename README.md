@@ -4,6 +4,10 @@
 
 A Flutter starter app that includes support for an HTTP client, themes, routing, localization, and dependency injection.
 
+## Compatibility
+
+Tested on Flutter 3.27.3
+
 ## Brick Uses:
 
 - [dio](https://pub.dev/packages/dio) as an HTTP client
