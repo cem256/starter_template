@@ -50,7 +50,7 @@ dev_dependencies:
   auto_route_generator: ^9.0.0
 
 flutter_gen:
-  output: lib/generated/
+  output: lib/app/generated/
   line_length: 120
 
   # Optional
