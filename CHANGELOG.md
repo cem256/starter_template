@@ -1,3 +1,6 @@
+# 1.2.2
+- Fixed the generated files location for flutter_gen
+
 # 1.2.1
 - Added compatibility with Flutter 3.27.3 to README.md
 
