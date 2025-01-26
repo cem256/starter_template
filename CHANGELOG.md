@@ -1,3 +1,6 @@
+# 1.2.1
+- Added compatibility with Flutter 3.27.3 to README.md
+
 # 1.2.0
 - Bumped mason to v0.1.0
 - Bumped flutter version to v3.27.3
