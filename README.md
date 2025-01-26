@@ -11,6 +11,7 @@ A Flutter starter app that includes support for an HTTP client, themes, routing,
 - [get_it](https://pub.dev/packages/get_it) for dependency injection
 - [logger](https://pub.dev/packages/logger) as logging utility
 - [envied](https://pub.dev/packages/envied) for secure handling of environment variables
+- [flutter_gen](https://pub.dev/packages/flutter_gen) for asset generation
 - [very_good_analysis](https://pub.dev/packages/very_good_analysis) for lint rules
 
 ## Project Structure
@@ -54,7 +55,6 @@ Ensure the environment/ folder is included in your .gitignore to protect sensiti
 ## Output 📦
 
 ```sh
-
 📦lib
  ┣ 📂app
  ┃ ┣ 📂constants
@@ -105,11 +105,12 @@ Ensure the environment/ folder is included in your .gitignore to protect sensiti
  ┃ ┃ ┃ ┗ 📜home_view.dart
  ┃ ┃ ┗ 📂view_model
  ┃ ┃ ┃ ┗ 📜.gitkeep
+ ┣ 📂generated
+ ┃ ┗ 📜assets.gen.dart
  ┣ 📜bootstrap.dart
  ┣ 📜locator.dart
  ┣ 📜main_development.dart
- ┗ 📜main_production.dart
-
+ ┗ 📜main_production.dart 
 ```
 
 ## Contributing

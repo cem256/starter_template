@@ -28,6 +28,7 @@ Future<void> run(HookContext context) async {
   await _copyFiles(context, foldersToRemove, filesToCopy);
   await _runFlutterPubGet(context, projectName);
   await _runBuildRunnerScript(context, projectName);
+  await _runFlutterGenScript(context, projectName);
 }
 
 Future<void> _copyFiles(
@@ -76,6 +77,20 @@ Future<void> _runBuildRunnerScript(HookContext context, String projectName) asyn
     buildRunnerProgress.complete("Build runner script successfully executed!");
   } else {
     buildRunnerProgress.complete("An error occurred on build runner script ${result.stderr.toString()}");
+    exit(exitCode);
+  }
+}
+
+Future<void> _runFlutterGenScript(HookContext context, String projectName) async {
+  final flutterGenProgress = context.logger.progress("Running flutter gen script");
+  final result = await Process.start("sh", ["scripts/flutter_gen.sh"], workingDirectory: projectName);
+
+  final exitCode = await result.exitCode;
+
+  if (exitCode == 0) {
+    flutterGenProgress.complete("Flutter gen script successfully executed!");
+  } else {
+    flutterGenProgress.complete("An error occurred on flutter gen script ${result.stderr.toString()}");
     exit(exitCode);
   }
 }
