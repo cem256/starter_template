@@ -1,3 +1,9 @@
+# 1.2.0
+- Bumped mason to v0.1.0
+- Bumped flutter version to v3.27.3
+- Bumped dependencies to the major versions
+- Added [flutter_gen](https://pub.dev/packages/flutter_gen) for asset generation
+
 # 1.1.12
 - Bumped dependencies to the latest versions
 
